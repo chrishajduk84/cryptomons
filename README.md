@@ -1,6 +1,9 @@
 # cryptomons
 Crypto dem all
 
+Step 0:
+Webserver for generating QR Code based on contract address (related to your wallet)
+
 Step 1:
 Convert digital blockchain private key into NFC card
 
@@ -29,6 +32,8 @@ Trading
 Step 8:
 Mining/Minting
 
+Ethereum Overview:
+![This is a photo](https://i.imgur.com/pAboKg6.jpg)
 
 QR Code Generator:
 echo "<img src='https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=bitcoin:$sendto?amount=$btcamount'>";
