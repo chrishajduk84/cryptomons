@@ -34,6 +34,7 @@ Step 8:
 
 Ethereum Overview:
 ![This is a photo](https://i.imgur.com/pAboKg6.jpg)
+![This is a photo](https://i.imgur.com/pAGkYvw.jpg)
 
 QR Code Generator:
 <img src='https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=bitcoin:$sendto?amount=$btcamount'>
