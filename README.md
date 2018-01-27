@@ -2,38 +2,38 @@
 Crypto dem all
 
 Step 0:
-Webserver for generating QR Code based on contract address (related to your wallet)
+* Webserver for generating QR Code based on contract address (related to your wallet)
 
 Step 1:
-Convert digital blockchain private key into NFC card
+* Convert digital blockchain private key into NFC card
 
 Step 2:
-Generate keys with different stats
--16 cryptomons, unique in skills, stats, pictures
+* Generate keys with different stats
+* 16 cryptomons, unique in skills, stats, pictures
 
 Step 3:
-Capture cryptomon keys in game
+* Capture cryptomon keys in game
 
 Step 4:
-Fight cryptomons
+* Fight cryptomons
 
 Step 5:
-Make level up, capture more
+* Make level up, capture more
 
 Step 6:
-Polish
-UI/UX
-3D + 1/2 Models
-2D Models
+* Polish
+* UI/UX
+* 3D + 1/2 Models
+* 2D Models
 
 Step 7:
-Trading
+* Trading
 
 Step 8:
-Mining/Minting
+* Mining/Minting
 
 Ethereum Overview:
 ![This is a photo](https://i.imgur.com/pAboKg6.jpg)
 
 QR Code Generator:
-echo "<img src='https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=bitcoin:$sendto?amount=$btcamount'>";
+<img src='https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=bitcoin:$sendto?amount=$btcamount'>
