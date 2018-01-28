@@ -1,5 +1,7 @@
 pragma solidity ^0.4.0;
 
+import "browser/cryptomons.sol";
+import "browser/cryptomonWallet.sol";
 
 contract cryptomonFactory{
     address owner;
@@ -13,24 +15,18 @@ contract cryptomonFactory{
     }
 
  mapping(int => uint) monsType;
- mapping(bytes32 => address) availableMons; //Is this Mining?
+ mapping(bytes32 => address) availableMons;
 
- function cryptomonFactory(address _createdby) internal{
-     owner = _createdby;
- }
+ function cryptomonFactory(){}
  
- function getNextMons(int locX, int locY, address walletAddress, bytes32 hash) external{
-    bytes32 compHash = sha256(locX,locY,walletAddress);
-    require(hash == compHash); //We can verify that walletAddres is at location X/Y
-    //But how do we prevent people from spamming this function all the time?
-    //Some type of time dependant hashing needs to be done to determine when things happen and only allow this function to run then
-    
-    //Assign token based on hash, use a mapping - TODO - Pull from queue/reserved cryptos
-    require(availableMons[hash] != 0);
-    if (!walletAddress.call(bytes4(keccak256("addCryptomon(address)")), availableMons[hash])){
+ function getNextMons(address dexAddress) external{
+    address newCryptomon = new cryptomon(dexAddress);
+    cryptomonWallet dex = cryptomonWallet(dexAddress);
+    dex.addCryptomon(newCryptomon);
+    /*if (!dexAddress.call(bytes4(keccak256("addCryptomon(address)")), newCryptomon)){
         revert();
-    }
-    
+    }*/
+        
  }
  
  function isContract(address addr) private view returns (bool) {
@@ -39,5 +35,4 @@ contract cryptomonFactory{
   return size > 0;
  }
     
-
 }

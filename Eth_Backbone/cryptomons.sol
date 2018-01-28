@@ -26,11 +26,7 @@ contract cryptomon {
     mapping(uint => monAttacks) validAttacks;
     mapping(uint => monStats) validStats;
     
-    function cryptomon(address OAddress, 
-                       bytes32 _name,
-                       address _cpty1, 
-                       address _creator)
-                       public{
+    function cryptomon(address OAddress) public{
         
     }
     function attack(address Target, uint chosenAttack, uint monID) public {
@@ -43,13 +39,11 @@ contract cryptomon {
     
     function battle(address Enemy, uint monID) public returns(bool win) {
         monStats storage stats = validStats[monID];
-        struct enemyStats = getStats();
+        /*struct enemyStats = getStats();
         if (Enemy.monStats.health <= 0) {
             return false;
-        }
+        }*/
     }
-    
-    
     
     function levelUp(uint statID) private {
         monStats memory stats = validStats[statID];
@@ -63,6 +57,7 @@ contract cryptomon {
     }
     
     function getStats() public returns(monStats stats) {
-        return monStats;
+        return stats;
     }
 }
+

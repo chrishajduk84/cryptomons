@@ -2,13 +2,13 @@ pragma solidity ^0.4.0;
 
 contract cryptomonWallet{
     address owner;
-    address FACTORY_ADDRESS = 0x123455678;
+    address FACTORY_ADDRESS = 0x8228d20eca70a59a17aee17db5a192b10f44c849;
     
     struct cryptomon{
         address cAddress;
     //    address owner;
     }
-    cryptomon[] dex;
+    address[] dex;
     cryptomon activeMon;
     modifier onlyBy(address _account)
     {
@@ -25,17 +25,15 @@ contract cryptomonWallet{
  
  
  //Must prevent the owner from creating invalid CryptoMons
- function addCryptoMon(address monAddress) public onlyBy(owner){
+ function addCryptomon(address monAddress) public {//onlyBy(owner)
      //Conditions required for this function to complete successfully:
      //1) Cryptomon must exist
      //2) Call to this function must come from the Cryptomon Factory. "The cryptomon must WANT to join this user."
      //3) Cryptomon must have been generated with a valid game at a valid time according to the seed.
-     require (isContract(monAddress)); //Check for #1
-     require (msg.sender == FACTORY_ADDRESS); //Check for #2
+     //require (isContract(monAddress)); //Check for #1
+     //require (msg.sender == FACTORY_ADDRESS); //Check for #2
      //TODO: #3
-     
-     cryptomon memory newMon = cryptomon(monAddress);
-     dex.push(newMon);
+     dex.push(monAddress);
  }
  
  function setActiveMon(address monAddress) public onlyBy(owner){
@@ -46,7 +44,7 @@ contract cryptomonWallet{
      return activeMon.cAddress; 
  }
  
- function getMons() public view returns (cryptomon[]){
+ function getMons() public view returns (address[]){
      return dex;
  }
  
@@ -54,7 +52,7 @@ contract cryptomonWallet{
   uint size;
   assembly { size := extcodesize(addr) }
   return size > 0;
- }
+}
     
 
 }
